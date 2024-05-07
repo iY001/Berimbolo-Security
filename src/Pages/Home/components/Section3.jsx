@@ -1,7 +1,7 @@
 import React from 'react'
 import { FiPhone } from "react-icons/fi";
 import { TbSettings2 } from "react-icons/tb";
-
+import { PiWrenchBold } from "react-icons/pi";
 function Section3() {
   const card = [
     {
@@ -11,11 +11,11 @@ function Section3() {
     },
     {
       icon : <TbSettings2 className='text-white text-2xl' />,
-      title : 'Get started',
-      description : 'With just a few questions, our Smart Home Pros will get to know your home and help you build a system to protect it.'
+      title : 'Customize',
+      description : 'Don’t stress over the price of peace of mind— we have package options for every budget, including 0% financing.'
     },
     {
-      icon : <TbSettings2 className='text-white text-2xl' />,
+      icon : <PiWrenchBold className='text-white text-2xl' />,
       title : 'Get started',
       description : 'With just a few questions, our Smart Home Pros will get to know your home and help you build a system to protect it.'
     }
@@ -23,7 +23,7 @@ function Section3() {
   return (
     <>
     <div id='buy-system' data-aos="fade-down" className='w-full md:pt-0'>
-      <div id='buy-system' className='w-[90%] flex flex-col justify-center items-center mx-auto'>
+      <div id='buy-system' className='w-[90%] flex flex-col justify-center items-center mx-auto '>
         <section className='flex flex-col justify-center items-center'>
         <h1 className='md:text-sm text-sm text-primary md:text-primary font-bold tracking-[4px] uppercase'>
           How to buy a system

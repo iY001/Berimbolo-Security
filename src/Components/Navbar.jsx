@@ -121,8 +121,8 @@ function Navbar() {
           {/* Logo */}
         </section>
 
-        <div className={`absolute  w-full h-screen bg-white lg:hidden block duration-300  ${showAside ? 'top-20 left-[0px] z-10' : 'top-20 left-[-1200px] z-[-1]'}`}>
-          <ul className='flex lg:flex-row flex-col lg:items-start items-start px-12 lg:justify-center lg:gap-0 gap-6 py-6'>
+        <div className={`absolute w-full h-screen bg-white lg:hidden block duration-300  ${showAside ? 'top-20 left-[0px] z-10' : 'top-20 left-[-1200px] z-[-1]'}`}>
+          <ul className='flex h-full lg:flex-row flex-col lg:items-start items-start px-12 lg:justify-center lg:gap-0 gap-6 py-6'>
             {links.map((link, index) => (
               <li className='group' key={index}>
                 <Link
@@ -158,6 +158,14 @@ function Navbar() {
                 }
               </li>
             ))}
+            <section className='w-full h-full flex flex-col gap-4 items-end justify-end py-20'>
+                <Link to={"/login"} className='w-full h-12 text-lg text-center bg-secondary text-primary font-bold ring-2 ring-primary ring-opacity-20 px-4 py-2 rounded-[7px] hover:bg-opacity-95 hover:text-primary duration-200'>
+                    Sign in                
+                </Link>
+                <Link to={"/register"} className='w-full h-12 text-lg text-center bg-secondary text-primary font-bold ring-2 ring-primary ring-opacity-20 px-4 py-2 rounded-[7px] hover:bg-opacity-95 hover:text-primary duration-200'>
+                    Sign up                
+                </Link>
+            </section>
           </ul>
         </div>
 
