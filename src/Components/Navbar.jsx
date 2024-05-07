@@ -142,13 +142,13 @@ function Navbar() {
                         {
                           link.links.map((sublink, subIndex) => (
                             <li key={subIndex}>
-                              <Link
-                                to={sublink.link}
+                              <a
+                                href={sublink.link}
                                 onClick={() => setShowAside(false)}
                                 className='text-primary underline text-2xl text-uppercase font-normal text-center hover:text-primary'
                               >
                                 {sublink.name}
-                              </Link>
+                              </a>
                             </li>
                           ))
                         }
