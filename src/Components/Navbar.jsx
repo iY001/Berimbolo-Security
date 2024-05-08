@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { IoIosArrowDown } from "react-icons/io";
-import { RiCloseLine, RiMenu2Line } from "react-icons/ri";
 import { Aos } from 'aos';
 
 function Navbar() {
@@ -9,6 +8,7 @@ function Navbar() {
   const [isHovered, setIsHovered] = useState(false);
   const [dropdown, setDropdown] = useState(false);
   const [showAside, setShowAside] = useState(false);
+  const navigate = useNavigate();
   const handleMouseEnter = (linkName) => {
     setIsHovered(true);
     setDropdown(true);
@@ -29,47 +29,47 @@ function Navbar() {
   const links = [
     {
       name: 'Home',
-      link: '/home',
-      links: [
-        { name: 'Home', link: '/home' },
-        { name: 'Why Berimolo', link: 'home#why-berimolo' },
-        { name: 'How to buy a system', link: '/home#buy-system' },
-      ]
+      link: '#',
     },
     {
-      name: 'Products',
-      link: '/products',
-      links: [
-        { name: 'Cameras', link: '/cameras' },
-        { name: 'Door Locks', link: '/door-locks' }
-      ]
+      name: 'About',
+      link: '/home#why-berimolo'
     },
     {
       name: 'Services',
-      link: '/services',
-      links: [
-        { name: 'Packages', link: '/packages' },
-        { name: 'Products', link: '/door-locks' }
-      ]
+      link: '/home#services',
     },
     {
       name: 'Plans & Pricing',
-      link: '/#buy-system',
+      link: '/home#plans',
       // links: [{}]
     }
   ];
-// how to make the Link component go to section by id when clicked
+
+  useEffect(() => {
+    // make if scroll down show menu
+    window.addEventListener('scroll', () => {
+      if (window.scrollY >= 500) {
+        setIsHovered(true);
+      }
+
+      if (window.scrollY < 250) {
+        setIsHovered(false);
+      }
+    });
+  }, []);
+  // how to make the Link component go to section by id when clicked
 
   return (
     <>
-      <nav className={`z-50 fixed top-0 w-full  ${isHovered ? 'bg-[#ffffff]' : 'bg-primary'} lg:h-20 flex lg:flex-row flex-row justify-center lg:justify-between items-center lg:items-start  `}>
+      <nav className={`z-50 fixed top-0 w-full  ${isHovered ? ' md:bg-[#ffffff] bg-primary' : 'bg-primary'} lg:h-20 flex lg:flex-row flex-row justify-center lg:justify-between items-center lg:items-start  `}>
         {/* Desktop Navbar */}
-        <section onMouseLeave={() => setIsHovered(false)} className={`lg:w-1/3 w-full lg:h-full transition-transform ease-in ${dropdown ? '' : ''} h-screen text-center ${isHovered ? 'bg-[#ffffff] duration-300' : 'bg-primary'} lg:relative lg:flex items-center hidden lg:top-0 md:pt-10 ${showMenu ? ' top-[80px]' : 'top-[-1000px]'}`}>
-          <ul  className={`z-[-1] lg:z-auto left-12 lg:absolute flex lg:flex-row flex-col lg:items-start items-center lg:justify-center lg:mt-2 lg:gap-0 gap-12 lg:py-0 py-24 ${showMenu ? 'h-screen lg:h-fit' : 'h-full'} duration-300`}>
+        <section onMouseLeave={() => setIsHovered(false)} className={`lg:w-1/3 md:w-full w-full flex items-center lg:h-full transition-transform ease-in h-screen text-center ${isHovered ? 'bg-[#ffffff] duration-300' : 'bg-primary'} lg:relative lg:flex items-center hidden lg:top-0 `}>
+          <ul className={`z-[-1] lg:z-auto flex lg:flex-row flex-col items-center lg:justify-center lg:mt-2 lg:gap-0 gap-12 lg:py-0 py-24 ${showMenu ? 'h-screen lg:h-fit' : 'h-full'} duration-300`}>
             {links.map((link, index) => (
               <li className='group' key={index} onMouseEnter={() => handleMouseEnter(link.name)} >
-                <Link
-                  to={link.link}
+                <a
+                  href={link.link}
                   onClick={() => setDropdown(!dropdown)}
                   onMouseEnter={() => setDropdown(true)}
                   className={`relative flex items-center lg:mt-0 ${isHovered ? "text-primary" : "text-white"} lg:text-lg text-3xl text-uppercase font-bold tracking-wider hover:text-primary after:bg-primary after:h-1 after:w-0 after:left-0 after:bottom-[-5px] after:rounded-xl after:absolute after:duration-300 group-hover:after:w-full mx-4`}
@@ -78,25 +78,9 @@ function Navbar() {
                   {link.links && link.links.length > 0 && (
                     <IoIosArrowDown className={`ml-2 ${dropdown ? 'group-hover:rotate-180' : ''} duration-300`} />
                   )}
-                </Link>
+                </a>
 
-                {link.links && link.links.length > 0 && dropdown && (
-                  <div  className={`absolute mx-auto hidden w-full lg:z-auto z-[-1] group-hover:block group-hover:lg:translate-y-0 lg:block ${isHovered ? 'lg:translate-y-[-300px]' : ''} lg:translate-y-[-600px] group-hover:h-full  duration-300`}>
-                    <ul className={`flex flex-col ${isHovered ? 'bg-[#ffffff] duration-200 z-[-10]' : 'bg-primary z-[-10]'} rounded-b-md drop-shadow-lg w-full lg:text-start text-center gap-4 pl-4 lg:pb-16 mt-6`}>
-                      {link.links.map((sublink, subIndex) => (
-                        <li key={subIndex}>
-                          <a
-                            onMouseEnter={() => handleMouseEnter(link.name)} 
-                            href={`${sublink.link}`}
-                            className='text-primary hover:underline  lg:text-lg text-3xl text-uppercase font-bold text-start hover:text-primary'
-                          >
-                            {sublink.name}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+
               </li>
             ))}
 
@@ -117,7 +101,7 @@ function Navbar() {
             </button>
 
           </div>
-          <h1 className={`text-3xl lg:w-full w-1/2 font-bold drop-shadow-lg uppercase group-hover:text-primary ${isHovered ? "text-primary" : "text-white"}`}>Berimbolo Security</h1>
+          <a href='#' className={`text-3xl lg:w-full w-1/2 font-bold drop-shadow-lg uppercase group-hover:text-primary ${isHovered ? "md:text-primary text-white" : "text-white"}`}>Berimbolo Security</a>
           {/* Logo */}
         </section>
 
@@ -125,59 +109,53 @@ function Navbar() {
           <ul className='flex h-full lg:flex-row flex-col lg:items-start items-start px-12 lg:justify-center lg:gap-0 gap-6 py-6'>
             {links.map((link, index) => (
               <li className='group' key={index}>
-                <Link
-                  to={link.link}
-                  onClick={() => setDropdown(!dropdown)}
+                <a
+                  href={link.link}
+                  onClick={() => setShowAside(!showAside)}
                   className='text-3xl flex items-center justify-start text-uppercase font-semibold  hover:text-primary'
                 >
                   {link.name}
                   {link.links && link.links.length > 0 && (
                     <IoIosArrowDown className={`ml-2 ${dropdown ? 'group-hover:rotate-180' : ''} duration-300`} />
                   )}
-                </Link>
-                {
-                  link.links && link.links.length > 0 && (
-                    <>
-                      <ul className={`hidden gap-2 flex-col duration-500 top-0 ${dropdown ? 'group-hover:flex group-active:translate-y-[-30px] opacity-100' : "hidden group-active:translate-y-300 opacity-0"} `}>
-                        {
-                          link.links.map((sublink, subIndex) => (
-                            <li key={subIndex}>
-                              <a
-                                href={sublink.link}
-                                onClick={() => setShowAside(false)}
-                                className='text-primary underline text-2xl text-uppercase font-normal text-center hover:text-primary'
-                              >
-                                {sublink.name}
-                              </a>
-                            </li>
-                          ))
-                        }
-                      </ul>
-                    </>
-                  )
-                }
+                </a>
+
               </li>
             ))}
             <section className='w-full h-full flex flex-col gap-4 items-end justify-end py-20'>
-                <Link to={"/login"} className='w-full h-12 text-lg text-center bg-secondary text-primary font-bold ring-2 ring-primary ring-opacity-20 px-4 py-2 rounded-[7px] hover:bg-opacity-95 hover:text-primary duration-200'>
-                    Sign in                
-                </Link>
-                <Link to={"/register"} className='w-full h-12 text-lg text-center bg-secondary text-primary font-bold ring-2 ring-primary ring-opacity-20 px-4 py-2 rounded-[7px] hover:bg-opacity-95 hover:text-primary duration-200'>
-                    Sign up                
-                </Link>
+              <button onClick={() => {
+                localStorage.removeItem("isAuthenticated")
+                setShowAside(false)
+                navigate("/login")
+              }} className='w-full h-12 text-lg text-center bg-secondary text-primary font-bold ring-2 ring-primary ring-opacity-20 px-4 py-2 rounded-[7px] hover:bg-opacity-95 hover:text-primary duration-200'>
+                Sign in
+              </button>
+              <button onClick={() => {
+                localStorage.removeItem("isAuthenticated")
+                setShowAside(false)
+                navigate("/register")
+              }} className='w-full h-12 text-lg text-center bg-secondary text-primary font-bold ring-2 ring-primary ring-opacity-20 px-4 py-2 rounded-[7px] hover:bg-opacity-95 hover:text-primary duration-200'>
+                Sign up
+              </button>
             </section>
           </ul>
         </div>
 
 
         {/* Desktop  */}
-        <section data-aos="zoom-out-left" className='lg:w-1/3 hidden w-full lg:py-4 lg:px-2 px-5 pt-8 lg:relative lg:flex flex-row items-center lg:justify-center lg:gap-12 gap-0'>
+        <section data-aos="zoom-out-left" className='lg:w-1/3 hidden w-full lg:py-4 lg:px-2 px-5 pt-8 lg:relative lg:flex flex-row items-center lg:justify-end lg:gap-12 gap-0'>
           {/* Auth Buttons */}
-          <button className='bg-secondary text-lg hover:drop-shadow-lg hover:shadow-primary font-bold ring-2 ring-primary ring-opacity-20 px-4 py-2 w-32 h-10 rounded-[7px] hover:bg-opacity-95 hover:text-primary duration-200 drop-shadow-lg'>
+          <button onClick={() => {
+            localStorage.removeItem("isAuthenticated")
+            navigate("/login")
+          }} className='bg-secondary text-lg hover:drop-shadow-lg hover:shadow-primary font-bold ring-2 ring-primary ring-opacity-20 px-4 py-2 w-32 h-10 rounded-[7px] hover:bg-opacity-95 hover:text-primary duration-200 drop-shadow-lg'>
             Sign In
           </button>
 
-          <button className='bg-secondary text-lg hover:drop-shadow-lg hover:shadow-primary font-bold ring-2 ring-primary ring-opacity-20 px-4 py-2 w-32 h-10 rounded-[7px] hover:bg-opacity-95 hover:text-primary duration-200 drop-shadow-lg'>
+          <button onClick={() => {
+            localStorage.removeItem("isAuthenticated")
+            navigate("/register")
+          }} className='bg-secondary text-lg hover:drop-shadow-lg hover:shadow-primary font-bold ring-2 ring-primary ring-opacity-20 px-4 py-2 w-32 h-10 rounded-[7px] hover:bg-opacity-95 hover:text-primary duration-200 drop-shadow-lg'>
             Sign Up
           </button>
         </section>

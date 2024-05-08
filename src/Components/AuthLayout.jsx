@@ -10,7 +10,7 @@ function AuthLayout() {
   return (
     <>
     <Routes>
-      <Route exact path="" index element={<Register />} />
+      <Route exact path="/" index element={<Register />} />
       <Route exact path="/register" index element={<Register />} />
       <Route exact path="/login" element={<Login />} />
     </Routes>

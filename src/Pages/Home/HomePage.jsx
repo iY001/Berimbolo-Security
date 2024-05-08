@@ -3,6 +3,10 @@ import Hero from './components/Hero';
 import Section2 from './components/Section2';
 import Section3 from './components/Section3';
 import Section4 from './components/Section4';
+import Products from './components/Products';
+import Plans from './components/Plans';
+import Services from './components/Services';
+import Questions from './components/Questions';
 
 function HomePage() {
   return (
@@ -10,7 +14,11 @@ function HomePage() {
     <Hero/>
     <Section4/>
     <Section3/>
-    <Section2/>
+    {/* <Section2/> */}
+    {/* <Products/> */}
+    <Services/>
+    <Plans/>
+    <Questions/>
     </>
   )
 }

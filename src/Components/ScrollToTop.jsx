@@ -12,7 +12,7 @@ function ScrollToTopOnPageChange() {
     return () => {
       unlisten();
     };
-  }, [location]);
+  }, [location , window.scrollX]);
 
   return null;
 }

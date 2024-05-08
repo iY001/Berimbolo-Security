@@ -6,14 +6,16 @@ import PublicRouter from "./Routes/PublicRouter";
 import Aos from "aos";
 import 'aos/dist/aos.css'; 
 import AuthLayout from "./Components/AuthLayout";
+import Loader from "./Components/Loader";
 
 function App() {
-  const [loading, setLoading] = useState(true)
+  const [isLoading, setIsLoading] =useState(true)
   useEffect(() => {
     Aos.init({duration: 1000});
+    
 
     setTimeout(() => {
-      setLoading(false)
+      setIsLoading(false)
     }, 1000);
   }, [])
   const isAuthenticated = localStorage.getItem('isAuthenticated') || false
@@ -21,6 +23,9 @@ function App() {
   return (
     <>
     <ScrollToTopOnPageChange />
+    {
+      isLoading && <Loader/>
+    }
     {
       isAuthenticated === 'false' || !isAuthenticated &&
     <AuthLayout/>
