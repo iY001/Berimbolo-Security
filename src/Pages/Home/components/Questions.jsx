@@ -17,7 +17,7 @@ function Questions() {
   ]
   return (
     <>
-    <div data-aria="fade-down" id='questions' className='w-full pb-14'>
+    <div data-aos="fade-down" id='questions' className='w-full pb-14'>
     <section className='flex flex-col justify-center items-center'>
         <h1 className='md:text-sm text-sm text-primary md:text-primary font-bold tracking-[4px] uppercase'>
           About

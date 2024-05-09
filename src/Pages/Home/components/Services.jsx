@@ -23,7 +23,7 @@ function Services() {
   ]
   return (
     <>
-      <div id='services' data-aria="fade-down" className='w-full '>
+      <div id='services' data-aos="fade-down" className='w-full '>
         <section className='flex flex-col justify-center items-center'>
           <h1 className='md:text-md text-sm text-primary md:text-primary font-bold tracking-[4px] uppercase'>
             SERVICES
@@ -58,7 +58,7 @@ function Services() {
 const ServiceCard = ({ title, subTitle, description, image, invert = true }) => {
   return (
     <>
-      <div data-aria="flip-down" className={`lg:w-[80%] md:w-[90%] w-full mx-auto flex md:flex-row ${invert === true ? 'md:flex-row-reverse' : ''} flex-col-reverse justify-center items-center md:justify-between md:min-h-[300px] min-h-[300px] bg-primary bg-opacity-[0.1]  rounded-[90px]`}>
+      <div data-aos="flip-down" className={`lg:w-[80%] md:w-[90%] w-full mx-auto flex md:flex-row ${invert === true ? 'md:flex-row-reverse' : ''} flex-col-reverse justify-center items-center md:justify-between md:min-h-[300px] min-h-[300px] bg-primary bg-opacity-[0.1]  rounded-[90px]`}>
         <section className='md:w-1/2 w-full py-8 bg-yel'>
           <div className={`w-full md:px-12 flex flex-col justify-center  items-center md:text-start text-center h-full`}>
             <section className='flex flex-col md:items-start items-center mx-auto justify-center'>

@@ -141,7 +141,7 @@ function Navbar() {
 
 
         {/* Desktop  */}
-        <section data-aria="zoom-out-left" className='lg:w-1/3 hidden w-full lg:py-4 lg:px-2 px-5 pt-8 lg:relative lg:flex flex-row items-center lg:justify-end lg:gap-12 gap-0'>
+        <section data-aos="zoom-out-left" className='lg:w-1/3 hidden w-full lg:py-4 lg:px-2 px-5 pt-8 lg:relative lg:flex flex-row items-center lg:justify-end lg:gap-12 gap-0'>
           {/* Auth Buttons */}
           <a href='/login' className='bg-secondary flex items-center justify-center text-lg hover:drop-shadow-lg hover:shadow-primary font-bold ring-2 ring-primary ring-opacity-20 px-4 py-2 w-32 h-10 rounded-[7px] hover:bg-opacity-95 hover:text-primary duration-200 drop-shadow-lg'>
             Sign In

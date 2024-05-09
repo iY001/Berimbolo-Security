@@ -45,23 +45,24 @@ function Products() {
     {
       name: 'Door Locker',
       category: 'HOME SAFETY',
-      image: 'assets/home/products/3.webp', // Updated image path
+      image: 'assets/home/products/3.webp',
     },
     {
-      name: 'Product 4',
-      category: 'This is product 4',
-      image: 'assets/home/products/1.webp', // Updated image path
+      name: 'Camera',
+      category: 'Security',
+      image: 'assets/home/products/1.webp',
     },
     {
-      name: 'Product 4',
-      category: 'This is product 4',
-      image: 'assets/home/products/1.webp', // Updated image path
+      name: 'Smart Camera',
+      category: 'Security',
+      image: 'assets/home/products/2.webp',
     },
     {
-      name: 'Product 4',
-      category: 'This is product 4',
-      image: 'assets/home/products/1.webp', // Updated image path
+      name: 'Door Locker',
+      category: 'HOME SAFETY',
+      image: 'assets/home/products/3.webp',
     },
+    
   ];
 
   return (
