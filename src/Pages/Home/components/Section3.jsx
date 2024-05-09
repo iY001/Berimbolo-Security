@@ -22,7 +22,7 @@ function Section3() {
   ]
   return (
     <>
-    <div id='buy-system' data-aos="fade-down" className='w-full md:pt-0'>
+    <div id='buy-system' data-aria="fade-down" className='w-full md:pt-0'>
       <div id='buy-system' className='w-[90%] flex flex-col justify-center items-center mx-auto '>
         <section className='flex flex-col justify-center items-center'>
         <h1 className='md:text-sm text-sm text-primary md:text-primary font-bold tracking-[4px] uppercase'>
@@ -35,7 +35,7 @@ function Section3() {
         <section className='lg:w-[70%] items-center w-full flex md:flex-row flex-col justify-center lg:gap-7 py-16'>
           {
             card.map((item, index) => (
-              <div data-aos="flip-down" key={index} className='md:w-1/3 w-full min-h-[300px] flex flex-col justify-center md:items-start items-center'>
+              <div data-aria="flip-down" key={index} className='md:w-1/3 w-full min-h-[300px] flex flex-col justify-center md:items-start items-center'>
                 <div className='w-16 h-16 rounded-full bg-primary bg-opacity-50 flex justify-center items-center'>
                   {item.icon}
                 </div>
@@ -52,7 +52,7 @@ function Section3() {
       </div>
     </div>
 
-    <div data-aos="fade-down" data-aos-duration="1500" className='py-12'>
+    <div data-aria="fade-down" data-aria-duration="1500" className='py-12'>
         <div className='w-[90%] h-full flex md:flex-row flex-col md:justify-between items-center justify-center mx-auto rounded-3xl bg-primary bg-opacity-80 py-12'>
           <section className='md:w-1/2 w-full h-full px-12 flex justify-start items-center  '>
             <section className='flex flex-col'>

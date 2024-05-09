@@ -11,7 +11,7 @@ function Carousel({ children, customStyles, carouselClass }) {
       swiperRef.current = new Swiper(`.${carouselClass}`, {
         // Add Swiper options here if needed
         
-        spaceBetween: 6,
+        spaceBetween: 1,
         loop: true,
         navigation: {
           nextEl: '.swiper-button-next',

@@ -3,7 +3,7 @@ import React from 'react'
 function Section2() {
   return (
     <>
-      <div data-aos="fade-down" data-aos-duration="1500" className='py-12'>
+      <div data-aria="fade-down" data-aria-duration="1500" className='py-12'>
         <div className='w-[90%] h-full flex md:flex-row flex-col md:justify-between items-center justify-center mx-auto rounded-3xl bg-primary bg-opacity-80 py-12'>
           <section className='md:w-1/2 w-full h-full px-12 flex justify-start items-center  '>
             <section className='flex flex-col'>

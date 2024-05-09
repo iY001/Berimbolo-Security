@@ -3,14 +3,14 @@ import React from 'react'
 function Section4() {
   return (
     <>
-      <div id='why-berimolo' data-aos="zoom-in" className='relative w-full h-full py-16'>
+      <div id='why-berimolo' data-aria="zoom-in" className='relative w-full h-full py-16'>
         <div className='relative w-full h-[600px] bg-primary bg-opacity-20'>
           <img src="assets/home/section4/Group 30.webp" className='z-[-1] w-full h-full absolute md:object-cover object-right-top object-cover  md:object-top top-0 left-0 bottom-0 right-0' alt="" />
           <section className='w-full h-full flex flex-col md:items-start justify-center text-center md:text-start items-center px-12'>
             <section
-              data-aos="fade-down"
-              data-aos-easing="linear"
-              data-aos-duration="1500" className='flex flex-col gap-4'>
+              data-aria="fade-down"
+              data-aria-easing="linear"
+              data-aria-duration="1500" className='flex flex-col gap-4'>
               <h1 className='md:text-md text-sm text-warning md:text-white font-bold tracking-[4px] uppercase drop-shadow-lg'>
                 WHY BERIMBOLO
               </h1>

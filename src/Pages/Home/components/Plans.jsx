@@ -63,7 +63,7 @@ function Plans() {
   ]
   return (
     <>
-    <div id='plans' data-aos="fade-down" className='w-full py-24'>
+    <div id='plans' data-aria="fade-down" className='w-full py-24'>
     <section className='flex flex-col justify-center items-center'>
         <h1 className='md:text-sm text-sm text-primary md:text-primary font-bold tracking-[4px] uppercase'>
           PLANS & PRICING

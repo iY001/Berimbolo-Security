@@ -65,7 +65,7 @@ function Navbar() {
       <nav className={`z-50 fixed top-0 w-full  ${isHovered ? ' md:bg-[#ffffff] bg-primary' : 'bg-primary'} lg:h-20 flex lg:flex-row flex-row justify-center lg:justify-between items-center lg:items-start  `}>
         {/* Desktop Navbar */}
         <section onMouseLeave={() => setIsHovered(false)} className={`lg:w-1/3 md:w-full w-full flex items-center lg:h-full transition-transform ease-in h-screen text-center ${isHovered ? 'bg-[#ffffff] duration-300' : 'bg-primary'} lg:relative lg:flex items-center hidden lg:top-0 `}>
-          <ul className={`z-[-1] lg:z-auto flex lg:flex-row flex-col items-center lg:justify-center lg:mt-2 lg:gap-0 gap-12 lg:py-0 py-24 ${showMenu ? 'h-screen lg:h-fit' : 'h-full'} duration-300`}>
+          <ul className={`z-[-1] lg:z-auto flex lg:flex-row flex-col items-center lg:justify-center  lg:gap-0 gap-12 lg:py-0 ${showMenu ? 'h-screen lg:h-fit' : 'h-full'} duration-300`}>
             {links.map((link, index) => (
               <li className='group' key={index} onMouseEnter={() => handleMouseEnter(link.name)} >
                 <a
@@ -95,9 +95,9 @@ function Navbar() {
               {/* {
                 showAside ? <RiCloseLine className='text-white'/> : <RiMenu2Line  className='text-white'/>  
               } */}
-              <span className={`top block w-5 h-[2px] duration-300 text-white ${showAside ? "absolute rotate-45" : ""} top-0 left-4 bg-white`}></span>
-              <span className={`middle block h-[2px] duration-300 w-5 ${showAside ? "-rotate-45" : ""}  top-0 left-4 bg-white`}></span>
-              <span className={`last h-[2px] w-5 ${showAside ? "absolute -rotate-45" : ""} top-0 duration-300  bg-white`}></span>
+              <span className={`top block w-5 h-[2px] duration-300 text-white ${showAside ? "absolute rotate-45" : ""} top-0 left-4 ${isHovered ? "md:bg-primary bg-white" : "bg-white"}`}></span>
+              <span className={`middle block h-[2px] duration-300 w-5 ${showAside ? "-rotate-45" : ""}  top-0 left-4 ${isHovered ? "md:bg-primary bg-white" : "bg-white"}`}></span>
+              <span className={`last h-[2px] w-5 ${showAside ? "absolute -rotate-45" : ""} top-0 duration-300  ${isHovered ? "md:bg-primary bg-white" : "bg-white"}`}></span>
             </button>
 
           </div>
@@ -143,19 +143,19 @@ function Navbar() {
 
 
         {/* Desktop  */}
-        <section data-aos="zoom-out-left" className='lg:w-1/3 hidden w-full lg:py-4 lg:px-2 px-5 pt-8 lg:relative lg:flex flex-row items-center lg:justify-end lg:gap-12 gap-0'>
+        <section data-aria="zoom-out-left" className='lg:w-1/3 hidden w-full lg:py-4 lg:px-2 px-5 pt-8 lg:relative lg:flex flex-row items-center lg:justify-end lg:gap-12 gap-0'>
           {/* Auth Buttons */}
           <button onClick={() => {
             localStorage.removeItem("isAuthenticated")
             navigate("/login")
-          }} className='bg-secondary text-lg hover:drop-shadow-lg hover:shadow-primary font-bold ring-2 ring-primary ring-opacity-20 px-4 py-2 w-32 h-10 rounded-[7px] hover:bg-opacity-95 hover:text-primary duration-200 drop-shadow-lg'>
+          }} className='bg-secondary flex items-center justify-center text-lg hover:drop-shadow-lg hover:shadow-primary font-bold ring-2 ring-primary ring-opacity-20 px-4 py-2 w-32 h-10 rounded-[7px] hover:bg-opacity-95 hover:text-primary duration-200 drop-shadow-lg'>
             Sign In
           </button>
 
           <button onClick={() => {
             localStorage.removeItem("isAuthenticated")
             navigate("/register")
-          }} className='bg-secondary text-lg hover:drop-shadow-lg hover:shadow-primary font-bold ring-2 ring-primary ring-opacity-20 px-4 py-2 w-32 h-10 rounded-[7px] hover:bg-opacity-95 hover:text-primary duration-200 drop-shadow-lg'>
+          }} className='bg-secondary flex items-center justify-center text-lg hover:drop-shadow-lg hover:shadow-primary font-bold ring-2 ring-primary ring-opacity-20 px-4 py-2 w-32 h-10 rounded-[7px] hover:bg-opacity-95 hover:text-primary duration-200 drop-shadow-lg'>
             Sign Up
           </button>
         </section>

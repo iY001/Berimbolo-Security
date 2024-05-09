@@ -15,7 +15,7 @@ function HomePage() {
     <Section4/>
     <Section3/>
     {/* <Section2/> */}
-    {/* <Products/> */}
+    <Products/>
     <Services/>
     <Plans/>
     <Questions/>

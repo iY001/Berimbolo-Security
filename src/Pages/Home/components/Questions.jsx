@@ -17,7 +17,7 @@ function Questions() {
   ]
   return (
     <>
-    <div data-aos="fade-down" id='questions' className='w-full pb-14'>
+    <div data-aria="fade-down" id='questions' className='w-full pb-14'>
     <section className='flex flex-col justify-center items-center'>
         <h1 className='md:text-sm text-sm text-primary md:text-primary font-bold tracking-[4px] uppercase'>
           About
@@ -49,7 +49,7 @@ const Dropdown = ({question, answer}) => {
   return (
     <>
     <div className='w-full '>
-      <div className={`w-full  flex justify-between items-center py-4 bg-primary text-white ${showAnswer ? 'rounded-t-2xl' : 'rounded-2xl'} px-8`}>
+      <div onClick={() => setShowAnswer(!showAnswer)} className={`w-full flex justify-between items-center py-4 bg-primary text-white ${showAnswer ? 'rounded-t-2xl' : 'rounded-2xl'} px-8 cursor-pointer`}>
         <h1 className='md:text-lg text-md text-white font-bold'>
           {question}
         </h1>
