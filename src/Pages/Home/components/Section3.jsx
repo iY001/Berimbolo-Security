@@ -60,7 +60,7 @@ function Section3() {
                 HOME SECURITY
               </h1>
               <h1 className='md:text-3xl text-white text-md  font-bold uppercase'>
-                Protect your home with a Vivint system
+                Protect your home with Berimolo system
                 that stops crime before it starts
               </h1>
             </section>
