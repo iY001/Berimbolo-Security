@@ -18,7 +18,7 @@ function App() {
       setIsLoading(false)
     }, 1000);
   }, [])
-  const isAuthenticated = localStorage.getItem('isAuthenticated') || false
+  const isAuthenticated = localStorage.getItem('isAuthenticated') || true
 
   return (
     <>
